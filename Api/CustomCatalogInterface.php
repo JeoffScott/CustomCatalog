@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\CustomCatalog\Api;
+namespace Testm\CustomCatalog\Api;
 
 interface CustomCatalogInterface
 {

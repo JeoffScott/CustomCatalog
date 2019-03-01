@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\CustomCatalog\Controller\Adminhtml\Product;
+namespace Testm\CustomCatalog\Controller\Adminhtml\Product;
 
 class Index  extends \Magento\Backend\App\Action
 {
@@ -45,14 +45,14 @@ class Index  extends \Magento\Backend\App\Action
      */
     protected function initPage($resultPage)
     {
-        $resultPage->setActiveMenu('Test_CustomCatalog::custom_catalog');
+        $resultPage->setActiveMenu('Testm_CustomCatalog::custom_catalog');
         return $resultPage;
     }
 
 
     protected function _isAllowed()
     {
-        return $this->_authorization->isAllowed('Test_CustomCatalog::products');
+        return $this->_authorization->isAllowed('Testm_CustomCatalog::products');
     }
 
 }

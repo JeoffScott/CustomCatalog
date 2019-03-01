@@ -1,5 +1,5 @@
 {
-  "name": "test/custom-catalog",
+  "name": "testm/custom-catalog",
   "description": "CustomCatalog",
   "type": "magento2-module",
   "version": "1.0.0",
@@ -16,7 +16,7 @@
       "registration.php"
     ],
     "psr-4": {
-      "Test\\CustomCatalog\\": ""
+      "Testm\\CustomCatalog\\": ""
     }
   },
   "minimum-stability": "dev",

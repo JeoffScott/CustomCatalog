@@ -1,8 +1,8 @@
 <?php
 
-namespace Test\CustomCatalog\Model;
+namespace Testm\CustomCatalog\Model;
 
-class CustomCatalog implements \Test\CustomCatalog\Api\CustomCatalogInterface
+class CustomCatalog implements \Testm\CustomCatalog\Api\CustomCatalogInterface
 {
     const TOPIC_NAME = 'customcatalog.product.update';
     /**

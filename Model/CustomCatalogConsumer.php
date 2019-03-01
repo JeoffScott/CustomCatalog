@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\CustomCatalog\Model;
+namespace Testm\CustomCatalog\Model;
 
 use Magento\Framework\App\ResourceConnection;
 use Magento\Framework\MessageQueue\MessageLockException;

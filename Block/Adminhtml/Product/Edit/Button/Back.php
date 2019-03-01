@@ -1,6 +1,6 @@
 <?php
 
-namespace Test\CustomCatalog\Block\Adminhtml\Product\Edit\Button;
+namespace Testm\CustomCatalog\Block\Adminhtml\Product\Edit\Button;
 
 /**
  * Class Back

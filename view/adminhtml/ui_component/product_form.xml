@@ -3,7 +3,7 @@
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
     <settings>
         <buttons>
-            <button name="back" class="Test\CustomCatalog\Block\Adminhtml\Product\Edit\Button\Back"/>
+            <button name="back" class="Testm\CustomCatalog\Block\Adminhtml\Product\Edit\Button\Back"/>
         </buttons>
     </settings>
 </form>

@@ -1,5 +1,5 @@
 <?php
-namespace Test\CustomCatalog\Plugin\Product;
+namespace Testm\CustomCatalog\Plugin\Product;
 
 class Save
 {

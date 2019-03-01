@@ -3,7 +3,7 @@
     <acl>
         <resources>
             <resource id="Magento_Backend::admin">
-                <resource id="Test_CustomCatalog::products" title="CustomCatalog" translate="title" sortOrder="110" />
+                <resource id="Testm_CustomCatalog::products" title="CustomCatalog" translate="title" sortOrder="110" />
             </resource>
         </resources>
     </acl>

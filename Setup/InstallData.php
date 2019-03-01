@@ -1,5 +1,5 @@
 <?php
-namespace Test\CustomCatalog\Setup;
+namespace Testm\CustomCatalog\Setup;
 
 use Magento\Eav\Setup\EavSetup;
 use Magento\Eav\Setup\EavSetupFactory;
