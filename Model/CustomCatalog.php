@@ -11,10 +11,10 @@ class CustomCatalog implements \Testm\CustomCatalog\Api\CustomCatalogInterface
     private $publisher;
 
     /** @var \Magento\Catalog\Api\ProductRepositoryInterface */
-    protected $_productRepository;
+    private $productRepository;
 
     /** @var \Magento\Framework\Api\SearchCriteriaBuilder */
-    protected $_searchCriteriaBuilder;
+    private $searchCriteriaBuilder;
 
     /**
      * @var  \Magento\Framework\Serialize\Serializer\Json
@@ -33,10 +33,9 @@ class CustomCatalog implements \Testm\CustomCatalog\Api\CustomCatalogInterface
         \Magento\Framework\Api\SearchCriteriaBuilder $searchCriteriaBuilder,
         \Magento\Framework\MessageQueue\PublisherInterface $publisher,
         \Magento\Framework\Serialize\Serializer\Json $jsonSerializer
-    )
-    {
-        $this->_productRepository = $productRepository;
-        $this->_searchCriteriaBuilder = $searchCriteriaBuilder;
+    ) {
+        $this->productRepository = $productRepository;
+        $this->searchCriteriaBuilder = $searchCriteriaBuilder;
         $this->publisher = $publisher;
         $this->jsonSerializer = $jsonSerializer;
     }
@@ -50,7 +49,7 @@ class CustomCatalog implements \Testm\CustomCatalog\Api\CustomCatalogInterface
      */
     public function getByVPN($vpn)
     {
-        $searchCriteria  = $this->_searchCriteriaBuilder->addFilter('vpn',$vpn,'eq')->create();
+        $searchCriteria = $this->_searchCriteriaBuilder->addFilter('vpn', $vpn, 'eq')->create();
         $products = $this->_productRepository->getList($searchCriteria);
         return $products;
     }
@@ -64,15 +63,13 @@ class CustomCatalog implements \Testm\CustomCatalog\Api\CustomCatalogInterface
      */
     public function save($productData)
     {
-       $result = array();
-        try{
-
-            $this->publisher->publish(self::TOPIC_NAME,$this->jsonSerializer->serialize( $productData));
+        $result = [];
+        try {
+            $this->publisher->publish(self::TOPIC_NAME, $this->jsonSerializer->serialize($productData));
             $result['success'] = 'Product with Id: '.$productData['entity_id'].' was updated';
-        }  catch (\Exception $e) {
+        } catch (\Exception $e) {
             $result['error'] = $e->getMessage();
         }
         return $result;
-
     }
 }

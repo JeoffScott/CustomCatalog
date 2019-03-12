@@ -12,8 +12,6 @@ interface CustomCatalogInterface
      * @return \Magento\Catalog\Api\Data\ProductSearchResultsInterface
      */
     public function getByVPN($vpn);
-
-
     /**
      * updates product attributes
      *

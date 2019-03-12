@@ -44,7 +44,7 @@ class CustomCatalogConsumer implements ConsumerInterface
     /**
      * @var \Magento\Catalog\Api\ProductRepositoryInterface
      */
-    protected $_productRepository;
+    private $productRepository;
     /**
      * @var  \Magento\Framework\Serialize\Serializer\Json
      */
@@ -72,7 +72,7 @@ class CustomCatalogConsumer implements ConsumerInterface
         $this->resource = $resource;
         $this->messageController = $messageController;
         $this->configuration = $configuration;
-        $this->_productRepository = $productRepository;
+        $this->productRepository = $productRepository;
         $this->jsonSerializer = $jsonSerializer;
     }
 
@@ -102,10 +102,12 @@ class CustomCatalogConsumer implements ConsumerInterface
             $lock = null;
             try {
                 $lock = $this->messageController->lock($message, $this->configuration->getConsumerName());
-                $messageBody = $this->jsonSerializer->unserialize($this->jsonSerializer->unserialize($message->getBody()));
+                $messageBody = $this->jsonSerializer->unserialize($this->jsonSerializer
+                    ->unserialize($message->getBody()));
                 $product =  $this->_productRepository->getById($messageBody['entity_id']);
                 $product->setData('copy_write_info', $messageBody['copyright_info']);
                 $product->setData('vpn', $messageBody['vpn']);
+                $product->setStoreId(0);
                 $product = $this->_productRepository->save($product);
                 if ($product === false) {
                     $queue->reject($message);

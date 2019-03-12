@@ -2,13 +2,13 @@
 
 namespace Testm\CustomCatalog\Controller\Adminhtml\Product;
 
-class Index  extends \Magento\Backend\App\Action
+class Index extends \Magento\Backend\App\Action
 {
 
     /**
      * @var \Magento\Framework\View\Result\PageFactory
      */
-    protected $resultPageFactory;
+    private $resultPageFactory;
 
     /**
      * Auction constructor.
@@ -18,8 +18,7 @@ class Index  extends \Magento\Backend\App\Action
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory
-    )
-    {
+    ) {
         $this->resultPageFactory = $resultPageFactory;
         parent::__construct($context);
     }
@@ -49,10 +48,8 @@ class Index  extends \Magento\Backend\App\Action
         return $resultPage;
     }
 
-
     protected function _isAllowed()
     {
         return $this->_authorization->isAllowed('Testm_CustomCatalog::products');
     }
-
 }

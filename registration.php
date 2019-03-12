@@ -5,4 +5,3 @@
     'Testm_CustomCatalog',
     __DIR__
 );
-
